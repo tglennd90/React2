@@ -1,13 +1,13 @@
 import React from 'react';
 import { Jumbotron, Container, Form, Button } from 'react-bootstrap';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     return (
         <Jumbotron fluid>
             <Container>
-                <Form>
+                <Form onSubmit={props.apiSearch}>
                     <Form.Group controlId="formBasicText">
-                        <Form.Control type="text" placeholder="Enter Book Name" className="searchBar" />
+                        <Form.Control onChange={props.handleSearch} type="text" placeholder="Enter Book Name" className="searchBar" />
                     </Form.Group>
                     <Button variant="primary" type="submit">
                         Search

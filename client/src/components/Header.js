@@ -7,7 +7,7 @@ const Header = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto" text="dark">
-                    <Nav.Link href="#" className="navLink1"><i class="fas fa-atlas"></i> Google Books</Nav.Link>
+                    <Nav.Link href="#" className="navLink1"><i className="fas fa-atlas"></i> Google Books</Nav.Link>
                     <Nav.Link href="#" className="navLink2">Book Search</Nav.Link>
                     <Nav.Link href="#" className="navLink3">Saved Books</Nav.Link>                    
                 </Nav>

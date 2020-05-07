@@ -7,6 +7,27 @@ import Search from './components/Search';
 // import Title from './components/Title';
 
 class App extends Component {
+
+  // constructor(props) {
+  //   super(props);
+    
+  //   this.state = {
+  //       posts: []
+  //   }
+  // }
+
+  // getDbData = () => {
+  //   axios.get('/')
+  //     .then((response) => {
+  //       const data = response.data
+  //       this.setState({ posts: data })
+  //       console.log("Data Recieved!")
+  //     })
+  //     .catch(() => {
+  //       console.log("No Data")
+  //     })
+  // }
+
   render() {
     return (
       <div className="App">
