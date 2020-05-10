@@ -18,6 +18,9 @@ mongoose.connection.on('connected', () => {
     console.log("Mongoose: " + "Connected!".cyan);
 })
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.use(morgan('tiny'));
 
 app.use('/', routes);

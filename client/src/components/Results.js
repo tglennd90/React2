@@ -15,9 +15,35 @@ class Results extends Component {
         this.state = {
             books: [],
             searchField: "",
-            posts: []
+            title: "",
+            author: "",
+            description: "",
+            image: "",
+            link: ""
         }
     }
+
+    handleSave = (event, props) => {
+        event.preventDefault();
+        this.setState({
+            title: props.title,
+            author: props.author,
+            description: props.description,
+            image: props.image,
+            link: props.link
+        });
+        axios.post("/", props).then(props => {console.log(props)})
+        // console.log(this.state.title)
+        // console.log(this.state.author)
+        // console.log(this.state.description)
+        // console.log(this.state.image)
+        // console.log(this.state.link)
+    }
+
+      apiSave = (event) => {
+          event.preventDefault();
+          console.log(this.title)
+      }
 
     apiSearch = (event) => {
         event.preventDefault();
@@ -39,23 +65,11 @@ class Results extends Component {
         });
     }
 
-    // getDbData = () => {
-    //     axios.get('/')
-    //       .then((response) => {
-    //         const data = response.data
-    //         this.setState({ posts: data })
-    //         console.log("Data Recieved!")
-    //       })
-    //       .catch(() => {
-    //         console.log("No Data")
-    //       })
-    //   }
-
     render() {
         return (
             <Container className="resultsArea">
                 <SearchBar apiSearch={this.apiSearch} handleSearch={this.handleSearch} />
-                <BookList books={this.state.books} />
+                <BookList books={this.state.books} save={this.handleSave} apiSave={this.apiSave} />
             </Container>
         )
     }

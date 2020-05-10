@@ -16,4 +16,27 @@ router.get('/', (req, res) => {
 
 });
 
+// router.get('/saved', (req, res) => {
+//     return(res)
+// })
+
+router.post('/saved', (req, res) => {
+    console.log('Body: ', req.body);
+    const data = req.body;
+
+    const newBookPost = new BookPost(data);
+
+    newBookPost.save((error) => {
+        if (error) {
+            res.status(500).json({ message: 'Sorry, internal errors.' })
+        } else {
+            res.json({ message: 'Data Saved!' })
+        }
+    });
+
+    res.json({
+        message: "Data Received!"
+    })
+});
+
 module.exports = router;

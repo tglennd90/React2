@@ -3,6 +3,7 @@ import React from 'react';
 import BookCard from './BookCard';
 
 const BookList = (props) => {
+
     return (
         <div className="list">
             {
@@ -11,10 +12,10 @@ const BookList = (props) => {
                                key={i}
                                title={book.volumeInfo.title}
                                author={book.volumeInfo.authors}
-                               description={book.volumeInfo.description}
+                               description={book.volumeInfo.subtitle}
                                image={book.volumeInfo.imageLinks.thumbnail}
-                               link={book.selfLink}
-                            //    save={props.getDbData}
+                               link={book.volumeInfo.infoLink}
+                               save={props.save}
                            />
                 })
             }
