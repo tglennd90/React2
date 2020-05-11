@@ -10,7 +10,7 @@ const app = express();
 
 const PORT = process.env.PORT || 8000;
 
-mongoose.connect('mongodb://localhost/googlebooks', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -26,5 +26,9 @@ app.use(morgan('tiny'));
 
 app.use(cors())
 app.use('/', routes);
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'))
+}
 
 app.listen(PORT, console.log(" "), console.log("Server: " + "http://localhost:".green + colors.green(PORT)));
