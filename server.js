@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const path = require('path');
 const routes = require('./routes/api');
 const colors = require('colors');
+const cors = require('cors');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(morgan('tiny'));
 
+app.use(cors())
 app.use('/', routes);
 
 app.listen(PORT, console.log(" "), console.log("Server: " + "http://localhost:".green + colors.green(PORT)));

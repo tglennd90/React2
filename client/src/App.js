@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import axios from 'axios';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Saved from './components/Saved';
 import Search from './components/Search';
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <div className="App">
-        <Search />
+        <BrowserRouter>
+          <Switch>
+            <Route component={Search} exact path="/" />
+            <Route component={Saved} path="/saved" />
+          </Switch>
+        </BrowserRouter>
       </div>
     );
-  }
 }
 
 export default App;

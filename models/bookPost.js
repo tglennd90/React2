@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
     title: String,
-    author: String,
+    author: Array,
     description: String,
     image: String,
     link: String
@@ -14,13 +14,13 @@ const bookSchema = new Schema({
 // Model
 const BookPost = mongoose.model('TestBook', bookSchema);
 
-// const bookTest = {
-//     title: "Tatum",
-//     author: "Tatum",
-//     description: "Tatum - Testing",
-//     image: "Tatum",
-//     link: "Tatum"
-// }
+const bookTest = {
+    title: "Tatum",
+    author: "Tatum",
+    description: "Tatum - Testing",
+    image: "Tatum",
+    link: "Tatum"
+}
 
 // const newBookSchema = new BookPost(bookTest);
 

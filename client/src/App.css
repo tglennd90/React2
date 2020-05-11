@@ -5,6 +5,11 @@ body {
     height: 100vh;
 }
 
+.navbar a {
+    text-decoration: none;
+    color: white;
+}
+
 #bookCard {
     margin-bottom: 5%;
 }
@@ -24,3 +29,7 @@ body {
     
 }
 
+.navLink2, .navLink3 {
+    margin-top: 3%;
+    padding-left: 10%;
+}

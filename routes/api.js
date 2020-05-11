@@ -16,9 +16,16 @@ router.get('/', (req, res) => {
 
 });
 
-// router.get('/saved', (req, res) => {
-//     return(res)
-// })
+router.get('/saved', (req, res) => {
+    BookPost.find({ })
+        .then((data) => {
+            // console.log('Data: ', data);
+            res.json(data);
+        })
+        .catch((error) => {
+            console.log("Error: ", error)
+        });
+})
 
 router.post('/saved', (req, res) => {
     console.log('Body: ', req.body);
@@ -34,9 +41,6 @@ router.post('/saved', (req, res) => {
         }
     });
 
-    res.json({
-        message: "Data Received!"
-    })
 });
 
 module.exports = router;
