@@ -4,13 +4,13 @@
   "description": "React Homework #2 - Google Books API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "install-client": "cd client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "node server.js && npm start",
-    "client": "cd client && npm start",
-    "dev": "concurrently -n 'server,client' -c 'red,green' \"nodemon server.js\" \"npm run client\""
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "if-env": "^1.0.4",
     "mongoose": "^5.9.12",
     "morgan": "^1.10.0",
     "react-bootstrap": "^1.0.1"

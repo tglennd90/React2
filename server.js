@@ -27,9 +27,9 @@ app.use(morgan('tiny'));
 app.use(cors())
 app.use('/', routes);
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'))
-}
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('client/build'))
+// }
 
 // app.listen(PORT, console.log(" "), console.log("Server: " + "http://localhost:".green + colors.green(PORT)));
 
